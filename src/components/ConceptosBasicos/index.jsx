@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import Acerca from '../../pages/Acerca';
 import Contacto from '../../pages/Contacto';
+import Error404 from '../../pages/Error404';
+import Home from '../../pages/Home';
 
 function ConceptosBasicos() {
   return (
@@ -15,28 +17,22 @@ function ConceptosBasicos() {
         <Routes>
           <Route 
             path='/'
-            element={
-              <>
-                <h3>Home</h3>
-                <p>Bienvenidos al tema de las rutas en React</p>
-              </>
-            }
+            element={<Home />}
             // Creo que no es necesario "exact" en versiones de react-router-dom a partir de la 6.0
-            exact
-          >  
-          </Route>
+          />  
           <Route 
             path='/acerca'
             element={<Acerca />}
-            exact
           >
           </Route>
           <Route 
             path='/contacto'
             element={<Contacto />}
-            exact
-          >
-          </Route>
+          />
+          <Route 
+            path='*'
+            element={<Error404 />}
+          />
         </Routes>
       </Router>
     </div>
