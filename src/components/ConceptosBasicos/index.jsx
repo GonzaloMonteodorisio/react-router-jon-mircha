@@ -4,8 +4,10 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import Acerca from '../../pages/Acerca';
+import Contacto from '../../pages/Contacto';
 
-const ConceptosBasicos = () => {
+function ConceptosBasicos() {
   return (
     <div>
       <h2>Conceptos Basicos</h2>
@@ -25,13 +27,13 @@ const ConceptosBasicos = () => {
           </Route>
           <Route 
             path='/acerca'
-            element={<h3>Acerca</h3>}
+            element={<Acerca />}
             exact
           >
           </Route>
           <Route 
             path='/contacto'
-            element={<h3>Contacto</h3>}
+            element={<Contacto />}
             exact
           >
           </Route>
