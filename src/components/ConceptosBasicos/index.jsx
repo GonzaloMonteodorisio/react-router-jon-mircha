@@ -2,7 +2,8 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Routes
+  Routes,
+  Navigate
 } from "react-router-dom";
 import Acerca from '../../pages/Acerca';
 import Contacto from '../../pages/Contacto';
@@ -51,6 +52,16 @@ function ConceptosBasicos() {
           <Route 
             path='*'
             element={<Error404 />}
+            end
+          />
+          <Route 
+            path='/about'
+            element={<Navigate to='/acerca' />}
+            end
+          />
+          <Route 
+            path='/contact'
+            element={<Navigate to='/contacto' />}
             end
           />
         </Routes>
