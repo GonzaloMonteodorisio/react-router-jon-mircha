@@ -53,6 +53,36 @@ function MenuConceptosBasicos() {
             Error 404
           </NavLink>
         </li>
+        <li>
+          <span>Parámetros: </span>
+          <NavLink 
+            to='/usuario/:gonzalo' 
+            className={({isActive}) => 
+            isActive ? 'active' : undefined
+          }
+          >
+            gonzalo
+          </NavLink>
+          <NavLink 
+            to='/usuario/:manuelita' 
+            className={({isActive}) => 
+            isActive ? 'active' : undefined
+          }
+          >
+            manuelita
+          </NavLink>
+        </li>
+        <li>
+          <span>Parámetros de consulta: </span>
+          <NavLink 
+            to='/productos' 
+            className={({isActive}) => 
+            isActive ? 'active' : undefined
+          }
+          >
+            Productos
+          </NavLink>          
+        </li>
       </ol>
     </nav>
   )
