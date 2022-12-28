@@ -10,6 +10,7 @@ import Contacto from '../../pages/Contacto';
 import Error404 from '../../pages/Error404';
 import Home from '../../pages/Home';
 import Productos from '../../pages/Productos';
+import ReactTopics from '../../pages/ReactTopics';
 import Usuario from '../../pages/Usuario';
 import MenuConceptosBasicos from '../MenuConceptosBasicos';
 
@@ -50,11 +51,6 @@ function ConceptosBasicos() {
             end
           />
           <Route 
-            path='*'
-            element={<Error404 />}
-            end
-          />
-          <Route 
             path='/about'
             element={<Navigate to='/acerca' />}
             end
@@ -62,6 +58,41 @@ function ConceptosBasicos() {
           <Route 
             path='/contact'
             element={<Navigate to='/contacto' />}
+            end
+          />
+          <Route 
+            path='/react/*'
+            element={<ReactTopics />}
+          >
+            {/* <Route 
+              path='jsx' 
+              element={<h3>JSX</h3>}
+              end
+            />
+            <Route 
+              index 
+              element={<h3>JSX</h3>}
+              end
+            />
+            <Route 
+              path='props' 
+              element={<h3>Props</h3>}
+              end
+            />
+            <Route 
+              path='estado' 
+              element={<h3>Estado</h3>}
+              end
+            />
+            <Route 
+              path='componentes' 
+              element={<h3>Componentes</h3>}
+              end
+            /> */}
+          </Route>
+          <Route 
+            path='*'
+            element={<Error404 />}
             end
           />
         </Routes>

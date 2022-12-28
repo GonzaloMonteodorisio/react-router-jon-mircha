@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Navigate, NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function MenuConceptosBasicos() {
   return (
@@ -84,7 +84,7 @@ function MenuConceptosBasicos() {
           </NavLink>          
         </li>
         <li>
-          <span>Redirecciones</span>
+          <span>Redirecciones: </span>
           <NavLink 
             to='/about' 
             className={({isActive}) => 
@@ -101,6 +101,17 @@ function MenuConceptosBasicos() {
           >
             Contact
           </NavLink>   
+        </li>
+        <li>
+          <span>Rutas anidadas: </span>
+          <NavLink 
+            to='/react' 
+            className={({isActive}) => 
+            isActive ? 'active' : undefined
+          }
+          >
+            React
+          </NavLink>            
         </li>
       </ol>
     </nav>
