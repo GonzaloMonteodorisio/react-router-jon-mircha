@@ -113,6 +113,25 @@ function MenuConceptosBasicos() {
             React
           </NavLink>            
         </li>
+        <li>
+          <span>Rutas privadas: </span>
+          <NavLink 
+            to='/login' 
+            className={({isActive}) => 
+            isActive ? 'active' : undefined
+          }
+          >
+            Login
+          </NavLink>            
+          <NavLink 
+            to='/dashboard' 
+            className={({isActive}) => 
+            isActive ? 'active' : undefined
+          }
+          >
+            Dashboard
+          </NavLink>            
+        </li>
       </ol>
     </nav>
   )

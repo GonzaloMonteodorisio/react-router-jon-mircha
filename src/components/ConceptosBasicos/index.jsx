@@ -7,14 +7,20 @@ import {
 } from "react-router-dom";
 import Acerca from '../../pages/Acerca';
 import Contacto from '../../pages/Contacto';
+import Dashboard from '../../pages/Dashboard';
 import Error404 from '../../pages/Error404';
 import Home from '../../pages/Home';
+import Login from '../../pages/Login';
 import Productos from '../../pages/Productos';
 import ReactTopics from '../../pages/ReactTopics';
 import Usuario from '../../pages/Usuario';
 import MenuConceptosBasicos from '../MenuConceptosBasicos';
 
 function ConceptosBasicos() {
+  let auth;
+  auth = true;
+  // auth = null;
+
   return (
     <div>
       <h2>Conceptos Basicos</h2>
@@ -63,33 +69,22 @@ function ConceptosBasicos() {
           <Route 
             path='/react/*'
             element={<ReactTopics />}
-          >
-            {/* <Route 
-              path='jsx' 
-              element={<h3>JSX</h3>}
-              end
-            />
-            <Route 
-              index 
-              element={<h3>JSX</h3>}
-              end
-            />
-            <Route 
-              path='props' 
-              element={<h3>Props</h3>}
-              end
-            />
-            <Route 
-              path='estado' 
-              element={<h3>Estado</h3>}
-              end
-            />
-            <Route 
-              path='componentes' 
-              element={<h3>Componentes</h3>}
-              end
-            /> */}
-          </Route>
+          />
+          <Route 
+            path='/login'
+            element={ auth ? (<Navigate to='/' />) : (<Login />) }
+            end
+          />
+          {/* <Route 
+            path='/dashboard'
+            element={<Dashboard />}
+            end
+          /> */}
+          <Route 
+            path='/dashboard'
+            element={ auth ? (<Dashboard />) : (<Navigate to='/login' />) }
+            end
+          />
           <Route 
             path='*'
             element={<Error404 />}
