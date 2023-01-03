@@ -3,7 +3,9 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate
+  Navigate,
+  HashRouter, 
+  NavLink
 } from "react-router-dom";
 import Acerca from '../../pages/Acerca';
 import Contacto from '../../pages/Contacto';
@@ -23,6 +25,80 @@ function ConceptosBasicos() {
 
   return (
     <div>
+      <h2>Hash Router</h2>
+      <HashRouter>
+        {/* <nav>
+          <NavLink to='/'>Home</NavLink>
+          <NavLink to='/acerca'>Acerca</NavLink>
+          <NavLink to='/contacto'>Contacto</NavLink>
+        </nav> */}
+        <MenuConceptosBasicos />
+        <Routes>
+          <Route 
+              path='/'
+              element={<Home />}
+              // Creo que no es necesario "exact" en versiones de react-router-dom a partir de la 6.0 -> es reemplazado por "end"
+              end
+            />  
+            <Route 
+              path='/acerca'
+              element={<Acerca />}
+              end
+            >
+            </Route>
+            <Route 
+              path='/contacto'
+              element={<Contacto />}
+              end
+            />
+            <Route 
+              // URLs amigables
+              path='/usuario/:username'
+              element={<Usuario />}
+              end
+            />
+            <Route 
+              // Parámetros de consulta
+              path='/productos'
+              element={<Productos />}
+              end
+            />
+            <Route 
+              path='/about'
+              element={<Navigate to='/acerca' />}
+              end
+            />
+            <Route 
+              path='/contact'
+              element={<Navigate to='/contacto' />}
+              end
+            />
+            <Route 
+              path='/react/*'
+              element={<ReactTopics />}
+            />
+            <Route 
+              path='/login'
+              element={ auth ? (<Navigate to='/' />) : (<Login />) }
+              end
+            />
+            {/* <Route 
+              path='/dashboard'
+              element={<Dashboard />}
+              end
+            /> */}
+            <Route 
+              path='/dashboard'
+              element={ auth ? (<Dashboard />) : (<Navigate to='/login' />) }
+              end
+            />
+            <Route 
+              path='*'
+              element={<Error404 />}
+              end
+            />      
+        </Routes>
+      </HashRouter>
       <h2>Conceptos Basicos</h2>
       <Router>
         <MenuConceptosBasicos />
